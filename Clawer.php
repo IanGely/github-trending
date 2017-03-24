@@ -21,8 +21,8 @@ while (true) {
 
 function gitAddCommitPush($date, $filename)
 {
-    $cmdAdd = 'git add {$filename}';
-    $cmdCommit = 'git commit -m "{$date}"';
+    $cmdAdd = "git add {$filename}";
+    $cmdCommit = "git commit -m '" . $date . "'";
     $cmdPush = 'git push -u origin master';
     exec($cmdAdd);
     exec($cmdCommit);
