@@ -82,8 +82,13 @@ function job()
     //抓取内容解析
     grasp("php", $fn);
     grasp("go", $fn);
-    grasp("python", $fn);
+    grasp("java", $fn);
     grasp("javascript", $fn);
+    grasp("html", $fn);
+    grasp("python", $fn);
+    grasp("swift", $fn);
+    grasp("ruby", $fn);
+
     //提交github
     gitAddCommitPush($strDate, $filename);
     fclose($fn);
