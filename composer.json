@@ -1,0 +1,7 @@
+{
+    "require": {
+        "paquettg/php-html-parser": "^1.7",
+        "symfony/var-dumper": "^3.2",
+        "sunra/php-simple-html-dom-parser": "^1.5"
+    }
+}
