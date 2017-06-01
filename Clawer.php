@@ -13,7 +13,6 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Sunra\PhpSimple\HtmlDomParser;
 
-error_reporting(0);
 while (true) {
     job();
     sleep(24 * 60 * 60);
@@ -46,12 +45,17 @@ function grasp($language, $fn)
     fwrite($fn, "\n## {$language} \n");
     foreach ($list as $li) {
         $a = $li->find("div", 0)->find("h3 a", 0);
-        $desc = trim($li->find(".py-1 .col-9", 0)->plaintext);
-        $stargazers = trim($li->find(".f6 a[aria-label=Stargazers]", 0)->plaintext);
+        $desc = $li->find(".py-1 .col-9", 0);
+	if (is_object($desc)) {
+	    $desc = trim($desc->plaintext);
+	}else{
+	    $desc = "No description";
+	}
+       // $stargazers = trim($li->find(".f6 a[aria-label=Stargazers]", 0)->plaintext);
         $title = trim($a->plaintext);
         $url = trim($a->href);
         $url = "https://github.com/" . $url;
-        fwrite($fn, "* [{$title}]({$url}): {$desc} \n");
+	fwrite($fn, "* [{$title}]({$url}): {$desc} \n");
     }
     logUtil("[grasp] {$language} end");
 }
