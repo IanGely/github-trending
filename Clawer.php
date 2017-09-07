@@ -13,10 +13,8 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Sunra\PhpSimple\HtmlDomParser;
 
-while (true) {
-    job();
-    sleep(24 * 60 * 60);
-}
+job();
+
 
 function gitAddCommitPush($date, $filename)
 {
